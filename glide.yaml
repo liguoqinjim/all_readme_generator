@@ -1,0 +1,3 @@
+package: github.com/liguoqinjim/all_readme_generator
+import:
+- package: github.com/parnurzeal/gorequest
