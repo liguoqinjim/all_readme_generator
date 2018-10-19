@@ -10,4 +10,4 @@ after_script:
   - ls -al files
 
 after_success:
-  - deploy.sh
+  - ./deploy.sh
