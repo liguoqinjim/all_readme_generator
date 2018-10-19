@@ -1,3 +1,13 @@
 language: go
 
+before_script:
+  - curl https://glide.sh/get | sh
+  - glide up
+
 script: go run main.go
+
+after_script:
+  - ls -al files
+
+after_success:
+  - 
