@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"encoding/json"
 	"fmt"
 	"github.com/parnurzeal/gorequest"
 	"io/ioutil"
@@ -30,28 +29,33 @@ func main() {
 	readEnv()
 
 	//读取所有的repos
-	request := gorequest.New()
-	_, body, errs := request.Get("https://api.github.com/user/repos").
-		SetBasicAuth(username, token).
-		End()
-	if errs != nil {
-		log.Fatalf("request.Get errro:%v", errs)
-	}
+	//request := gorequest.New()
+	//_, body, errs := request.Get("https://api.github.com/user/repos").
+	//	SetBasicAuth(username, token).
+	//	End()
+	//if errs != nil {
+	//	log.Fatalf("request.Get errro:%v", errs)
+	//}
+	//
+	//var resp = &Resp{}
+	//if err := json.Unmarshal([]byte(body), resp); err != nil {
+	//	log.Fatalf("json.Unmarshal error:%v", err)
+	//}
 
-	var resp = &Resp{}
-	if err := json.Unmarshal([]byte(body), resp); err != nil {
-		log.Fatalf("json.Unmarshal error:%v", err)
-	}
+	//readmes := make([]string, 0)
+	//for _, v := range *resp {
+	//	if needRepo(v.Name) {
+	//		readmes = append(readmes, downloadReadme(v.Name))
+	//
+	//		if TEST_MODE {
+	//			break
+	//		}
+	//	}
+	//}
 
 	readmes := make([]string, 0)
-	for _, v := range *resp {
-		if needRepo(v.Name) {
-			readmes = append(readmes, downloadReadme(v.Name))
-
-			if TEST_MODE {
-				break
-			}
-		}
+	for _, v := range repos {
+		readmes = append(readmes, downloadReadme(v))
 	}
 
 	//生成all_readme
