@@ -1,1 +1,1 @@
-go-labs,go-tools
+go-labs,go-tools,go-playground,beego_labs,js-tools,js-labs,py3-tools,py3-labs,py2-tools,py2-labs,linux_conf,shell-labs,data-labs,docker-labs,elk-labs,fiddler_config,idata,java-labs,phantomjs_labs
